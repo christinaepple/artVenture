@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Device Orientation Panorama</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="200x200" href="/img/icon.png">
+
+
+    <!-- Cache-busting for CSS -->
+    <script>
+      const cssVersion = new Date().getTime(); // Generate a timestamp
+      const cssLink = document.createElement('link');
+      cssLink.rel = 'stylesheet';
+      cssLink.href = `style.css?v=${cssVersion}`;
+      document.head.appendChild(cssLink);
+    </script>
+
+    <!-- Cache-busting for json -->
+     <script>
+      const jsonVersion = new Date().getTime();
+      const jsonLink = document.createElement('link');
+      jsonLink.rel = 'manifest';
+      jsonLink.href = `manifest.json?v=${jsonVersion}`;
+      document.head.appendChild(jsonLink);
+     </script>
+    
+
+</head>
+
+<body>
+  
+
+  <div class="start-screen" id="startScreen">
+    <div class="circle" id="startCircle"></div>
+    <div class="logo-container">
+      <img src="img/test.png" alt="Logo" class="logo">
+    </div>
+    <button id="startButton">Kunst entdecken</button>
+    <!-- <div id="info">Bewege dein Handy, um Kunstwerke in deiner Nähe zu entdecken <br>
+      <br>
+      Hast du ein Kunstwerk gefunden und möchtest es dir im Museum angucken, 
+      kannst du dir durch auswählen und kippen des Handys nach unten die Wegbeschreibung anzeigen lassen
+    </div> -->
+</div>
+
+  <div id="switchOverlay" style="display: none;">
+    <div class="circleOverlay" id="circleOverlay"></div>
+    <div id="switchHeader">Archiv der Avantgarden</div>
+    <div id="switchText">leicht links abbiegen
+    </div>
+    <div id="arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+        <path d="M68.6722 119.169C68.4721 121.369 70.0935 123.315 72.2936 123.515C74.4937 123.715 76.4393 122.094 76.6393 119.894L68.6722 119.169ZM76.562 76.5623L76.1999 72.5788C74.2769 72.7536 72.7533 74.2772 72.5784 76.2002L76.562 76.5623ZM119.893 76.6396C122.093 76.4396 123.715 74.494 123.515 72.2939C123.315 70.0939 121.369 68.4725 119.169 68.6725L119.893 76.6396ZM120.609 126.266C122.171 127.828 124.704 127.828 126.266 126.266C127.828 124.704 127.828 122.171 126.266 120.609L120.609 126.266ZM76.6393 119.894L80.5456 76.9245L72.5784 76.2002L68.6722 119.169L76.6393 119.894ZM76.9242 80.5459L119.893 76.6396L119.169 68.6725L76.1999 72.5788L76.9242 80.5459ZM73.7336 79.3908L120.609 126.266L126.266 120.609L79.3904 73.7339L73.7336 79.3908ZM100 29C139.212 29 171 60.7878 171 100L179 100C179 56.3695 143.63 21 100 21L100 29ZM171 100C171 139.212 139.212 171 100 171L100 179C143.63 179 179 143.63 179 100L171 100ZM100 171C60.7878 171 29 139.212 29 100L21 100C21 143.63 56.3695 179 100 179L100 171ZM29 100C29 60.7878 60.7878 29 100 29L100 21C56.3695 21 21 56.3695 21 100L29 100Z" fill="white"/>
+        </svg>
+    </div>
+  </div>
+
+    <!-- JPG Screen Overlay -->
+    <div id="jpgOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('./img/Bildansicht2.png') no-repeat center center; background-size: cover; z-index: 100;">
+      <button onclick="hideJPGScreen()" style="position: absolute; top: 10px; right: 10px;">Close</button>
+    </div>
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/DeviceOrientationControls.js"></script>
+
+  <!-- Cache-busting for JS -->
+  <script>
+      const jsVersion = new Date().getTime(); // Generate a timestamp
+      const script = document.createElement('script');
+      script.src = `script.js?v=${jsVersion}`;
+      document.body.appendChild(script);
+  </script>
+</body>
+
+</html>
